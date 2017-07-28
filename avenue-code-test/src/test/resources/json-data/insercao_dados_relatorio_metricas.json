@@ -1,0 +1,54 @@
+[
+  {
+    "metricsReportKey" : {
+      "idOrder": 12345,
+      "idLineItem": 12345,
+      "idCreative": 12345,
+      "date": 20170101,
+      "hour": 25
+    },
+    "totalImpressions": 1,
+    "totalClicks": 1,
+    "totalCPMAndCPCRevenue": 0.5,
+    "status": "NOT_PROCESSED"
+  },
+  {
+    "metricsReportKey" : {
+      "idOrder": 12345,
+      "idLineItem": 12345,
+      "idCreative": 12345,
+      "date": 20170101,
+      "hour": 26
+    },
+    "totalImpressions": 1,
+    "totalClicks": 1,
+    "totalCPMAndCPCRevenue": 0.5,
+    "status": "NOT_PROCESSED"
+  },
+  {
+    "metricsReportKey" : {
+      "idOrder": 54321,
+      "idLineItem": 54321,
+      "idCreative": 54321,
+      "date": 20170101,
+      "hour": 25
+    },
+    "totalImpressions": 1,
+    "totalClicks": 1,
+    "totalCPMAndCPCRevenue": 0.5,
+    "status": "NOT_PROCESSED"
+  },
+  {
+    "metricsReportKey" : {
+      "idOrder": 54321,
+      "idLineItem": 54321,
+      "idCreative": 54321,
+      "date": 20170101,
+      "hour": 26
+    },
+    "totalImpressions": 1,
+    "totalClicks": 1,
+    "totalCPMAndCPCRevenue": 0.5,
+    "status": "NOT_PROCESSED"
+  }
+]

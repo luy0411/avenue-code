@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.avenue</groupId>
+		<artifactId>avenue-test</avenue-code>
+        <version>1.0.0</version>
+    </parent>
+
+    <packaging>jar</packaging>
+    <name>avenue-test-service</name>
+    <avenue-code>avenue-test-service</avenue-code>
+    <description>Interface do Anunciante - Report Manager</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.avenue</groupId>
+            <avenue-code>avenue-test-core</avenue-code>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <avenue-code>hsqldb</avenue-code>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <avenue-code>spring-core</avenue-code>
+        </dependency>
+
+        <!-- SPRING BOOT -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <avenue-code>spring-boot-starter-jetty</avenue-code>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <avenue-code>spring-boot-starter-web</avenue-code>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <avenue-code>spring-boot-starter-data-jpa</avenue-code>
+        </dependency>
+
+        <!-- Swagger IO -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <avenue-code>springfox-swagger2</avenue-code>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <avenue-code>springfox-swagger-ui</avenue-code>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.parent.avenue-code}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <avenue-code>maven-assembly-plugin</avenue-code>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>${project.parent.avenue-code}</id>
+                        <phase>install</phase>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                            <tarLongFileMode>posix</tarLongFileMode>
+                        </configuration>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <avenue-code>spring-boot-maven-plugin</avenue-code>
+                <version>${org.springframework.boot.version}</version>
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>${start-class}</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <targetPath>../classes</targetPath>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>
