@@ -5,53 +5,52 @@
 
     <parent>
         <groupId>com.avenue</groupId>
-		<artifactId>avenue-test</avenue-code>
+		<artifactId>avenue-code</artifactId>
         <version>1.0.0</version>
     </parent>
 
     <packaging>jar</packaging>
-    <name>avenue-test-service</name>
-    <avenue-code>avenue-test-service</avenue-code>
-    <description>Interface do Anunciante - Report Manager</description>
+    <name>avenue-code-service</name>
+    <artifactId>avenue-code-service</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.avenue</groupId>
-            <avenue-code>avenue-test-core</avenue-code>
+            <artifactId>avenue-code-core</artifactId>
             <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.hsqldb</groupId>
-            <avenue-code>hsqldb</avenue-code>
+            <artifactId>hsqldb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <avenue-code>spring-core</avenue-code>
+            <artifactId>spring-core</artifactId>
         </dependency>
 
         <!-- SPRING BOOT -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <avenue-code>spring-boot-starter-jetty</avenue-code>
+            <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <avenue-code>spring-boot-starter-web</avenue-code>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <avenue-code>spring-boot-starter-data-jpa</avenue-code>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <!-- Swagger IO -->
         <dependency>
             <groupId>io.springfox</groupId>
-            <avenue-code>springfox-swagger2</avenue-code>
+            <artifactId>springfox-swagger2</artifactId>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
-            <avenue-code>springfox-swagger-ui</avenue-code>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
 
@@ -59,28 +58,8 @@
         <finalName>${project.parent.avenue-code}-${project.version}</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <avenue-code>maven-assembly-plugin</avenue-code>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <id>${project.parent.avenue-code}</id>
-                        <phase>install</phase>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/main/assembly/assembly.xml</descriptor>
-                            </descriptors>
-                            <tarLongFileMode>posix</tarLongFileMode>
-                        </configuration>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <avenue-code>spring-boot-maven-plugin</avenue-code>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${org.springframework.boot.version}</version>
                 <configuration>
                     <executable>true</executable>
