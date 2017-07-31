@@ -14,6 +14,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT NEW com.avenue.entity.Product(id, name) from Product")
     List<Product> findAllWithoutChildren();
 
+    @Query("SELECT NEW com.avenue.entity.Product(id, name) from Product WHERE parent.id = :id")
+    List<Product> findAllChildrenProducts(@Param("id") final Long id);
+
     @Query("SELECT NEW com.avenue.entity.Product(id, name) from Product WHERE id = :id")
     Product findByIdWithoutChildren(@Param("id") final Long id);
 

@@ -1,9 +1,6 @@
 package com.avenue.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Image {
@@ -12,7 +9,15 @@ public class Image {
     private Long id;
     private String url;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Product owner;
+
     public Image() {
+    }
+
+    public Image(Long id, String url) {
+        this.id = id;
+        this.url = url;
     }
 
     public Long getId() {
@@ -29,5 +34,13 @@ public class Image {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Product getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Product owner) {
+        this.owner = owner;
     }
 }

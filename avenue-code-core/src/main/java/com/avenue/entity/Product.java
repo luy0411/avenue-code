@@ -22,9 +22,6 @@ public class Product {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Product parent;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Product> children;
-
     public Product() {
     }
 
@@ -63,13 +60,5 @@ public class Product {
 
     public void setParent(Product parent) {
         this.parent = parent;
-    }
-
-    public Set<Product> getChildren() {
-        return children;
-    }
-
-    public void setChildren(Set<Product> children) {
-        this.children = children;
     }
 }
