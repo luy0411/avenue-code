@@ -1,21 +1,37 @@
 package com.avenue.entity;
 
+import com.avenue.serializer.ImageSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Product {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
 
-    @OneToMany
-    private List<Image> images;
+    @JsonSerialize( using = ImageSerializer.class )
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Image> images;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Product parent;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Product> children;
+
+    public Product() {
+    }
+
+    public Product(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -33,11 +49,11 @@ public class Product {
         this.name = name;
     }
 
-    public List<Image> getImages() {
+    public Set<Image> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(Set<Image> images) {
         this.images = images;
     }
 
@@ -47,5 +63,13 @@ public class Product {
 
     public void setParent(Product parent) {
         this.parent = parent;
+    }
+
+    public Set<Product> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Set<Product> children) {
+        this.children = children;
     }
 }

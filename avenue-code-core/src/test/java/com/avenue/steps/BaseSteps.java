@@ -1,10 +1,10 @@
 package com.avenue.steps;
 
-import com.avenue.util.DataUtil;
 import com.avenue.entity.Product;
+import com.avenue.repository.ProductRepository;
+import com.avenue.util.DataUtil;
 import cucumber.api.java.pt.Dado;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.avenue.repository.ProductRepository;
 
 import java.util.List;
 import java.util.Map;

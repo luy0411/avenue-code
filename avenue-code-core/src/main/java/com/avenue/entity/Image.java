@@ -12,6 +12,9 @@ public class Image {
     private Long id;
     private String url;
 
+    public Image() {
+    }
+
     public Long getId() {
         return id;
     }

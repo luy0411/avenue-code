@@ -1,24 +1,50 @@
 package com.avenue.manager;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import com.avenue.entity.Product;
 import com.avenue.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
 public class ProductManager {
 
-    private Logger LOGGER = LoggerFactory.getLogger(ProductManager.class);
+    private final ProductRepository repository;
 
     @Autowired
-    private ProductRepository repository;
+    public ProductManager(ProductRepository repository) {
+        this.repository = repository;
+    }
+
+    @Transactional
+    public Product save(final Product product) {
+        if (product.getParent() != null){
+            product.setParent(repository.findOne(product.getParent().getId()));
+        }
+        return repository.saveAndFlush(product);
+    }
+
+    public Product update (final Product product) {
+        return repository.saveAndFlush(product);
+    }
+
+    public List<Product> findAllWithoutChildren() {
+        return repository.findAllWithoutChildren();
+    }
 
     public List<Product> findAll() {
         return repository.findAll();
     }
+
+    public Product findByIdWithoutChildren(final Long id) {
+        return repository.findByIdWithoutChildren(id);
+    }
+
+    public Product findById(final Long id){ return repository.findOne(id); }
+
+    public void delete(final Long id){ repository.delete(id); }
+
 
 }
