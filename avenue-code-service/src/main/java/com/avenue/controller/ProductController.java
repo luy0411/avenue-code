@@ -20,7 +20,8 @@ public class ProductController {
     @RequestMapping(method = RequestMethod.GET, value = "/")
     @ResponseBody
     public List<Product> findAll() {
-        return manager.findAll();
+        List<Product> all = manager.findAll();
+        return all;
     }
 
 }

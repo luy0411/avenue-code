@@ -7,27 +7,8 @@
         </encoder>
     </appender>
 
-    <appender name="LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <Append>true</Append>
-        <File>/export/logs/ia-report-manager/ia-report-manager.log</File>
-        <encoder>
-            <pattern>[${project.version}][%d{dd-MM-yyyy HH:mm:ss,Brazil/East}] %p %c - %m%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/export/logs/ia-report-manager/ia-report-manager.log.%d{yyyy-MM-dd}</fileNamePattern>
-        </rollingPolicy>
-    </appender>
-
-    <logger name="org.springframework">
-        <level value="WARN"/>
-        <appender-ref ref="LOG"/>
-    </logger>
-
     <root>
         <level value="INFO"/>
-        <!--<appender-ref ref="${rootLog:-LOG}"/>-->
-
-        <!--Descomentar para que o log padrao seja no console da aplicação-->
         <appender-ref ref="${rootLog:-STDOUT}"/>
     </root>
 

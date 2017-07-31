@@ -12,7 +12,7 @@ public class DataConfiguration {
     @Bean
     public DataSource dataSource() {
         DataSource build = DataSourceBuilder.create()
-                .url("jdbc:hsqldb:file:/opt/UOLI/webapps/ia-report-manager/data/;hsqldb.lock_file=false")
+                .url("jdbc:hsqldb:mem:avenue")
                 .driverClassName("org.hsqldb.jdbc.JDBCDriver")
                 .username("test")
                 .password("test")
