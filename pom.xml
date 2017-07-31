@@ -23,7 +23,7 @@
         <org.springframework.boot.version>1.5.1.RELEASE</org.springframework.boot.version>
         <spring.aspects>4.3.7.RELEASE</spring.aspects>
         <jetty.version>9.1.0</jetty.version>
-        <start-class>uol.publicidade.ia.report.manager.main.ApplicationStarter</start-class>
+        <start-class>ApplicationStarter</start-class>
         <cucumber.version>1.2.4</cucumber.version>
         <reconf.version>2.1.14</reconf.version>
         <uol.ecommerce.commons.version>0.1.76</uol.ecommerce.commons.version>
